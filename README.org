@@ -1,0 +1,22 @@
+* LyXiT
+Edit \LaTeX fragment in LyX
+* Motivation
+Using with Vim/Emacs/Evil bang or shell command. It deserved a
+dedicated binding if you're working with LaTeX directly or in org-mode
+with a lot of formulae etc.
+
+I'm trying my best to keep it working in both OS X/BSD and *nix world.
+* Prerequisite
+Make sure you have ~lyx~ and ~tex2lyx~ with the PATH environment variable.
+* Example
+#+BEGIN_SRC emacs-lisp
+(require 'use-package)
+(evil-define-operator link/lyxit-line (beg end type)
+  "Edit current region in lyx."
+  :motion evil-line
+  (interactive "<R>")
+  (shell-command-on-region beg end "lyxit -n -" t t)
+  (when org-indent-mode
+    (org-indent-mode 1)))
+(bind-key "s-m" 'link/lyxit-line org-mode-map)
+#+END_SRC

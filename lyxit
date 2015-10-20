@@ -1,0 +1,11 @@
+#!/bin/bash
+TMPNAME=$(mktemp -t lyxit)
+
+tee ${TMPNAME}.tex 2>/dev/null 1>/dev/null
+tex2lyx ${TMPNAME}.tex 2>/dev/null 1>/dev/null
+lyx ${TMPNAME}.lyx 2>/dev/null 1>/dev/null
+lyx -e latex ${TMPNAME}.lyx 2>/dev/null 1>/dev/null
+
+sed -e '1,/\begin{document}/d' -e '/\end{document}/,$d' ${TMPNAME}.tex \
+| sed -e '/./,$!d' -e ':a' -e '/./,$!d;/^\n*$/{$d;N;};/\n$/ba'
+rm -rf ${TMPNAME}.{,tex,lyx}
