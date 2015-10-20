@@ -1,13 +1,13 @@
 * LyXiT
 Edit \LaTeX fragment in LyX
 * Motivation
-Using with Vim/Emacs/Evil bang or shell command. It deserved a
+Using with Vim/Evil/Emacs bang or shell command. It deserves a
 dedicated binding if you're working with LaTeX directly or in org-mode
 with a lot of formulae etc.
 
-I'm trying my best to keep it working in both OS X/BSD and *nix world.
+I tried my best to keep it working in both OS X/BSD and *nix world.
 * Prerequisite
-Make sure you have ~lyx~ and ~tex2lyx~ with the PATH environment variable.
+Make sure you have =lyx= and =tex2lyx= with the PATH environment variable.
 * Example
 ** Emacs
 #+BEGIN_SRC emacs-lisp
