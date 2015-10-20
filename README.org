@@ -9,6 +9,7 @@ I'm trying my best to keep it working in both OS X/BSD and *nix world.
 * Prerequisite
 Make sure you have ~lyx~ and ~tex2lyx~ with the PATH environment variable.
 * Example
+** Emacs
 #+BEGIN_SRC emacs-lisp
 (require 'use-package)
 (evil-define-operator link/lyxit-line (beg end type)
@@ -20,3 +21,8 @@ Make sure you have ~lyx~ and ~tex2lyx~ with the PATH environment variable.
     (org-indent-mode 1)))
 (bind-key "s-m" 'link/lyxit-line org-mode-map)
 #+END_SRC
+** Vim/Evil
+#+BEGIN_SRC vim
+:'<,'>!lyxit
+#+END_SRC
+
